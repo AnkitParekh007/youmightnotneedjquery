@@ -3,8 +3,8 @@ function outerHeight(el) {
 
   return (
     el.getBoundingClientRect().height +
-    parseFloat(style.getPropertyValue('marginTop')) +
-    parseFloat(style.getPropertyValue('marginBottom'))
+    parseFloat(style.marginTop) +
+    parseFloat(style.marginBottom)
   );
 }
 

@@ -1,13 +1,9 @@
 function prev(el, selector) {
-  if (selector) {
-    let previous = el.previousElementSibling;
-    while (previous && !previous.matches(selector)) {
-      previous = previous.previousElementSibling;
-    }
-    return previous;
-  } else {
-    return el.previousElementSibling;
+  const prevEl = el.previousElementSibling;
+  if (!selector || (prevEl && prevEl.matches(selector))) {
+    return prevEl;
   }
+  return null;
 }
 
 prev(el);
