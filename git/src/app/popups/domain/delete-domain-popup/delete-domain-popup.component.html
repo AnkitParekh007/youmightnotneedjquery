@@ -1,0 +1,36 @@
+<div class="min-vertical-h-20 w100 mx-auto">
+	<section *ngIf="!showOtpView" class="text-center p-4">
+		<p class="text-center font-weight-normal d-block w100 flow-visible">
+			Are you sure you want to Delete the {{labels.HIERARCHY}}
+			<strong class="text-primary" title="{{ popupData.domainData.domainName }}">{{ popupData.domainData.domainName }}</strong
+			>? <br />This action will permanently delete all {{labels.HIERARCHY}} specific components such as taxonomy hierarchy, schemas, {{labels.HIERARCHY}} specific SKUs and PFs, and exports. <br />These
+			cannot be retrieved once the {{labels.HIERARCHY}} is deleted. <br />Do you want to Proceed?
+		</p>
+		<button type="button" class="rounded-pill my-2" (click)="generateOtp()" mat-raised-button color="primary">Proceed to Generate OTP</button>
+	</section>
+
+	<section *ngIf="showOtpView" class="text-center p-4">
+		<div class="w100 mx-auto">
+			<p class="text-center font-weight-normal d-block w100 flow-visible text-primary">Please enter the <strong>OTP</strong> which was sent to your email address</p>
+			<div class="w40 m-auto">
+				<input id="generate-otp-input" type="password" [placeholder]="'Type OTP' | translate" class="form-control form-control-sm rounded-pill mt-2" [(ngModel)]="otp" />
+			</div>
+			<p class="text-center font-weight-normal d-block w100 flow-visible text-primary text-underline mt-2 curPoint" (click)="generateOtp()">
+				<strong>Resend OTP</strong>
+			</p>
+			<p class="text-center font-weight-normal d-block w100 flow-visible mt-4 text-primary" *ngIf="!isTimeExpired">
+				Please note OTP will expire in <strong id="time"></strong>
+			</p>
+			<p class="text-center font-weight-normal d-block w100 flow-visible mt-4 text-danger" *ngIf="isTimeExpired">
+				<strong>Your OTP is expired</strong>
+			</p>
+		</div>
+	</section>
+</div>
+<div class="form-btn text-sm-center amaze-bg">
+	<button type="button" [disabled]="otp == '' || isTimeExpired" (click)="submit()" class="rounded-pill my-2" mat-raised-button color="primary">
+		<i class="fas fa fa-cog fa-spin" [hidden]="!isLoading"></i>
+		Delete
+	</button>
+	<button class="rounded-pill my-2 ml-3" type="button" mat-flat-button mat-dialog-close="true">Cancel</button>
+</div>

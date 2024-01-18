@@ -1,0 +1,9 @@
+.reviewerPrivilegePanelTbl {
+	input.form-control.mat-autocomplete-trigger.ng-pristine.ng-invalid.ng-touched {
+		border-color: var(--red) !important;
+	}
+}
+
+.fSize {
+	font-size: 1.125rem !important;
+}

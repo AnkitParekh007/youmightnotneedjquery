@@ -1,0 +1,162 @@
+<div id="addDomainFormWrapper" class="d-block w-100 overflow-hidden mx-auto">
+	<form [formGroup]="addDomainForm" (ngSubmit)="addDomainToDatabase()" novalidate autocomplete="off">
+		<div class="scrollableSection min-vertical-h-50 max-vertical-h-60 stylishScroll flow-y-auto flow-x-hidden">
+			<div class="form-group px-5 mb-3 row d-flex align-items-center justify-content-center">
+				<div class="col">
+					<label class="d-block small font-weight-bold">{{labels.HIERARCHY}} <sup class="text-danger">*</sup></label>
+					<input
+						trim="blur"
+						cdkFocusInitial
+						required
+						autocomplete="off"
+						type="text"
+						class="form-control form-control-sm rounded-pill"
+						formControlName="domainName"
+						name="domainName"
+						placeholder="Type {{labels.HIERARCHY}} Name"
+						[ngClass]="{
+							'is-invalid': !isNameFieldFocused && isValidCheck('domainName')
+						}"
+						(focus)="isNameFieldFocused = true"
+						(focusout)="isNameFieldFocused = false" />
+					<mat-error class="font-weight-bold small ml-2 text-danger" *ngIf="!isNameFieldFocused && isValidCheck('domainName')">
+						{{ getErrorMessage("name") }}
+					</mat-error>
+				</div>
+			</div>
+			<div class="form-group px-5 mb-3 row d-flex align-items-center justify-content-center">
+				<div class="col">
+					<label class="d-block small font-weight-bold">{{labels.HIERARCHY}} Description <sup class="text-danger">*</sup></label>
+					<textarea
+						trim="blur"
+						autocomplete="off"
+						formControlName="domainDescription"
+						name="domainDescription"
+						class="form-control form-control-sm rounded"
+						rows="3"
+						placeholder="Type {{labels.HIERARCHY}} Description"
+						[ngClass]="{
+							'is-invalid': isValidCheck('domainDescription')
+						}"></textarea>
+					<mat-error class="font-weight-bold small ml-2 text-danger" *ngIf="isValidCheck('domainDescription')">
+						{{ getErrorMessage("description") }}
+					</mat-error>
+				</div>
+			</div>
+			<div class="form-group px-5 mb-3 mx-1 row d-flex align-items-center justify-content-center">
+				<div class="col-12 p-0">
+					<label class="d-block small font-weight-bold my-2"
+						>Amaze Intelligence:
+						<mat-icon
+							class="material-icons-outlined fSize align-middle"
+							matTooltip="This will provide intelligent recommendations for taxonomy, schema and SKU attribute."
+							matTooltipPosition="right"
+							>info_outline</mat-icon
+						></label
+					>
+					<p class="m-0 d-flex align-items-center">
+						<span class="sm-label mr-2">On</span>
+						<label class="custom-toggle mx-1">
+							<input type="checkbox" formControlName="ckbToggle" />
+							<span class="custom-toggle-slider rounded-circle fa-rotate-180"></span>
+						</label>
+						<span class="sm-label ml-2">Off</span>
+					</p>
+				</div>
+				<div class="col p-0">
+					<label class="d-block small font-weight-bold my-2">Review mode:</label>
+					<p class="m-0 d-flex align-items-center">
+						<span class="sm-label mr-2">On</span>
+						<label class="custom-toggle mx-1">
+							<input type="checkbox" formControlName="reviewToggle" />
+							<span class="custom-toggle-slider rounded-circle fa-rotate-180"></span>
+						</label>
+						<span class="sm-label ml-2">Off</span>
+					</p>
+				</div>
+			</div>
+			<div *ngIf="reviewConfig.reviewToggle" class="form-group px-5 mb-3 mx-2 row">
+				<p class="text-muted">Configure which user actions will need review :</p>
+				<mat-accordion displayMode="flat" multi="true">
+					<mat-expansion-panel [expanded]="true" *ngFor="let panel of uiExpPanels; let panelIndex = index">
+						<mat-expansion-panel-header>
+							<mat-panel-title>{{ panel.label }}</mat-panel-title>
+						</mat-expansion-panel-header>
+						<table class="table table-bordered table-sm tblFix m-0 reviewerPrivilegePanelTbl">
+							<thead>
+								<tr class="amaze-bg">
+									<th class="w5"></th>
+									<th class="w55">Action</th>
+									<th class="w20">Mode</th>
+									<th class="w20">Reviewer</th>
+								</tr>
+							</thead>
+							<tbody formArrayName="review_rules">
+								<ng-container *ngFor="let rule of reviewersRules.controls; let ruleIndex = index">
+									<tr *ngIf="panel.entity == reviewConfig.rules[ruleIndex].entity" [formGroupName]="ruleIndex">
+										<td class="text-center align-middle" title="{{ reviewConfig.rules[ruleIndex].privilegeDescription }}">
+											<span class="text-muted material-icons-outlined">info</span>
+										</td>
+										<td class="text-wrap align-middle">
+											<span>{{ reviewConfig.rules[ruleIndex].privilegeName }}</span>
+										</td>
+										<td class="align-middle">
+											<p class="m-0 d-flex align-items-center">
+												<span class="sm-label mr-2">On</span>
+												<label class="custom-toggle mx-1">
+													<input
+														(change)="rule.ruleEnabled = !rule.ruleEnabled; toggleReviewers($event, rule, reviewConfig.rules[ruleIndex], ruleIndex)"
+														type="checkbox"
+														formControlName="ruleEnabled" />
+													<span class="custom-toggle-slider rounded-circle fa-rotate-180"></span>
+												</label>
+												<span class="sm-label ml-2">Off</span>
+											</p>
+										</td>
+										<td class="align-middle">
+											<input
+												type="text"
+												[disabled]="!rule.ruleEnabled"
+												formControlName="ruleUser"
+												[placeholder]="'Type Reviewer Name' | translate"
+												class="form-control form-control-sm rounded-pill"
+												trim="blur"
+												id="{{ reviewConfig.rules[ruleIndex].privilegeCode }}Input"
+												[matAutocomplete]="auto"
+												(keyup)="filterUsers($event.target.value, ruleIndex)"
+												[class.is-invalid]="rule.controls.ruleUser.invalid && (rule.controls.ruleUser.dirty || rule.controls.ruleUser.touched)" />
+											<mat-autocomplete [panelWidth]="'400px'" [displayWith]="displayReviewerFn" #auto="matAutocomplete">
+												<mat-option *ngFor="let user of reviewConfig.rules[ruleIndex].filteredUsers" [value]="user">
+													<div class="row w100 d-flex align-items-center no-gutters small">
+														<span class="col-1"><mat-icon class="m-0 text-muted" fontSet="material-icons-outlined">perm_identity</mat-icon></span>
+														<span class="col-5"
+															><span class="text-truncate w100 d-block" title="{{ displayReviewerFn(user) }}">{{
+																displayReviewerFn(user)
+															}}</span></span
+														>
+														<span class="col-1">| <mat-icon class="m-0 text-muted" fontSet="material-icons-outlined">email</mat-icon></span>
+														<span class="col-5"
+															><span class="text-truncate w100 d-block pl-1" title="{{ user.userEmailId }}">{{ user.userEmailId }}</span></span
+														>
+													</div>
+													<mat-divider></mat-divider>
+												</mat-option>
+											</mat-autocomplete>
+										</td>
+									</tr>
+								</ng-container>
+							</tbody>
+						</table>
+					</mat-expansion-panel>
+				</mat-accordion>
+			</div>
+		</div>
+		<div class="form-btn text-sm-center amaze-bg">
+			<button type="submit" [disabled]="addDomainForm.invalid || isLoading" class="rounded-pill my-2" mat-raised-button color="primary">
+				<i class="fas fa fa-cog fa-spin" [hidden]="!isLoading"></i>
+				Add
+			</button>
+			<button class="rounded-pill my-2 ml-3" type="button" mat-flat-button mat-dialog-close="true">Cancel</button>
+		</div>
+	</form>
+</div>
