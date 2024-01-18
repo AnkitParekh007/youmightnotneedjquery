@@ -1,0 +1,29 @@
+<app-header (lockToggle)="toggleLockScreen(true)"></app-header>
+<mat-drawer-container [hasBackdrop]="'false'">
+	<mat-drawer
+		#sidenav
+		[mode]="'over'"
+		[opened]="!isMobile && toOpenNavAtLoad"
+		[disableClose]="!isMobile"
+		ngClass.gt-sm="has-border"
+		(mouseleave)="sideNavAction('collapse')"
+		class="amazeSideNav position-fixed">
+		<app-sidenav></app-sidenav>
+	</mat-drawer>
+	<mat-drawer-content class="main-content">
+		<router-outlet *ngIf="!isShowingRouteLoadIndicator"></router-outlet>
+		<div *ngIf="isShowingRouteLoadIndicator" class="router-load-indicator">
+			<div>
+				<div class="route-loader mx-auto">
+					<span *ngFor="let in of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]"></span>
+					<div class="rocket"></div>
+				</div>
+				<p class="w100 text-center font-weight-bold text-primary h1 animated fadeIn infinite mt-5">
+					<small>Please hold for a while....</small>
+				</p>
+			</div>
+		</div>
+		<app-footer></app-footer>
+		<app-lock-screen (releaseLock)="toggleLockScreen(false)" [lockToggleClicked]="lockToggleClicked"></app-lock-screen>
+	</mat-drawer-content>
+</mat-drawer-container>
