@@ -1,0 +1,38 @@
+This document contains ideas and suggestion and much more coming directly from team, frontend devs or client using Amaze
+These task can be taken as parallel tasks along with existing features by developers (after getting approved by Pratik if its an impactful feature)
+
+Any relevant topic can be added which u think will prove any aspect of Application like performance, code-standard, etc
+
+Guidelines to be followed:
+
+A. Npm Packages / Jquery libraries /
+	1. In this case, when new addition or updation is done by you, please check its impact wherever its being used.
+	2. It should be compatible with current and later version of Angular being used.
+
+B. Code improvements
+	1. Typescript checks
+	2. Avoiding extensive logic in loops
+
+C. TODO from Ankit
+D. TODO from Ankit
+E. TODO from Ankit
+
+
+Topics / Suggestions:
+
+1. Angular Upgrade from 12 - 16
+   Efforts / Time Needed for Angular 12 - 13 : 0.5 Day
+   Efforts / Time Needed for Angular 13 - 14 : 0.5 Day
+   Efforts / Time Needed for Angular 14 - 15 : 0.5 Day
+   Efforts / Time Needed for Angular 15 - 16 : 1 Day (impactful)
+2. Language support for UI Labels as per current locale feature
+3. Typescript update and usage in code
+	a. Use of Generics
+	b. Use of strict arguments
+	c. Use of spread arguments
+	d. use of native loops
+	e. use of immutablity
+4. Rewrite of Store MANAGEMENT for APP
+5. Replacement of Jquery libraries with NPX or NPM angular Packages
+6. Generic Icon Framework
+7. Dynamic Theme Change options

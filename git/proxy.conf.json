@@ -1,0 +1,16 @@
+{
+  	"/api": {
+   	 	"target": "https://localhost:4200",
+    	"secure": false,
+    	"pathRewrite": {
+	      	"^/rest/v1": ""
+	    },
+	    "changeOrigin": true,
+	    "logLevel": "debug"
+  	},
+
+	"/mock":{
+		"target":"https://localhost:3000",
+		"secure": false
+	}
+}
