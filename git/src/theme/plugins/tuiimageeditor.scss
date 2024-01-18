@@ -1,0 +1,1462 @@
+$color_1: var(--white);
+$color_2: #8e8e8e;
+$font_family: "Noto Sans", sans-serif;
+$background_color_1: #282828;
+$background_color_2: #151515;
+$background_color_3: #fdba3b;
+$background_color_4: #2f2f2f;
+$background_color_5: var(--white);
+$background_color_6: rgba(81, 92, 230, 0.05);
+$background_color_7: #666;
+$background_color_8: #d1d1d1;
+$background_color_9: #333;
+$background_color_10: #ccc;
+$background_color_11: #606060;
+$background_color_12: #1c1c1c;
+$background_color_13: #f5f5f5;
+$border_color_1: #fdba3b;
+
+.tui-image-editor-container {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	min-height: 18.75rem;
+	height: 100%;
+	position: relative;
+	background-color: $background_color_1;
+	overflow: hidden;
+	letter-spacing: 0.0188rem;
+	div {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		-ms-user-select: none;
+		-moz-user-select: -moz-none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+	ul {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		-ms-user-select: none;
+		-moz-user-select: -moz-none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+	label {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		-ms-user-select: none;
+		-moz-user-select: -moz-none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+	input {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		-ms-user-select: none;
+		-moz-user-select: -moz-none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+	li {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		-ms-user-select: none;
+		-moz-user-select: -moz-none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+	.tui-image-editor-header {
+		min-width: 33.3125rem;
+		position: absolute;
+		background-color: $background_color_2;
+		top: 0;
+		width: 100%;
+	}
+	.tui-image-editor-header-buttons {
+		float: right;
+		margin: 0.5rem;
+		button {
+			display: inline-block;
+			position: relative;
+			width: 7.5rem;
+			height: 2.5rem;
+			padding: 0;
+			line-height: 2.5rem;
+			outline: none;
+			border-radius: 1.25rem;
+			border: 0.0625rem solid #ddd;
+			font-family: $font_family;
+			font-size: 0.75rem;
+			font-weight: bold;
+			cursor: pointer;
+			vertical-align: middle;
+			letter-spacing: 0.0188rem;
+			text-align: center;
+		}
+		div {
+			display: inline-block;
+			position: relative;
+			width: 7.5rem;
+			height: 2.5rem;
+			padding: 0;
+			line-height: 2.5rem;
+			outline: none;
+			border-radius: 1.25rem;
+			border: 0.0625rem solid #ddd;
+			font-family: $font_family;
+			font-size: 0.75rem;
+			font-weight: bold;
+			cursor: pointer;
+			vertical-align: middle;
+			letter-spacing: 0.0188rem;
+			text-align: center;
+		}
+	}
+	.tui-image-editor-controls-buttons {
+		float: right;
+		margin: 0.5rem;
+		width: 16.875rem;
+		height: 100%;
+		display: none;
+		button {
+			display: inline-block;
+			position: relative;
+			width: 7.5rem;
+			height: 2.5rem;
+			padding: 0;
+			line-height: 2.5rem;
+			outline: none;
+			border-radius: 1.25rem;
+			border: 0.0625rem solid #ddd;
+			font-family: $font_family;
+			font-size: 0.75rem;
+			font-weight: bold;
+			cursor: pointer;
+			vertical-align: middle;
+			letter-spacing: 0.0188rem;
+			text-align: center;
+		}
+		div {
+			display: inline-block;
+			position: relative;
+			width: 7.5rem;
+			height: 2.5rem;
+			padding: 0;
+			line-height: 2.5rem;
+			outline: none;
+			border-radius: 1.25rem;
+			border: 0.0625rem solid #ddd;
+			font-family: $font_family;
+			font-size: 0.75rem;
+			font-weight: bold;
+			cursor: pointer;
+			vertical-align: middle;
+			letter-spacing: 0.0188rem;
+			text-align: center;
+		}
+	}
+	.tui-image-editor-header-logo {
+		float: left;
+		width: 30%;
+		padding: 1.0625rem;
+	}
+	.tui-image-editor-controls-logo {
+		float: left;
+		width: 30%;
+		padding: 1.0625rem;
+		width: 16.875rem;
+		height: 100%;
+		display: none;
+	}
+	.tui-image-editor-download-btn {
+		background-color: $background_color_3;
+		border-color: $border_color_1;
+		color: $color_1;
+	}
+	.tui-image-editor-load-btn {
+		position: absolute;
+		left: 0;
+		right: 0;
+		display: inline-block;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		cursor: pointer;
+		opacity: 0;
+	}
+	.tui-image-editor-main-container {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		bottom: 4rem;
+	}
+	.tui-image-editor-main {
+		position: absolute;
+		text-align: center;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+	}
+	.tui-image-editor-wrap {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		overflow: auto;
+		position: absolute;
+		.tui-image-editor-size-wrap {
+			display: table;
+			width: 100%;
+			height: 100%;
+			.tui-image-editor-align-wrap {
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+	}
+	.tui-image-editor {
+		position: relative;
+		display: inline-block;
+	}
+	.tui-image-editor-menu {
+		width: auto;
+		list-style: none;
+		padding: 0;
+		margin: 0 auto;
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+		white-space: nowrap;
+		> .tui-image-editor-item {
+			position: relative;
+			display: inline-block;
+			border-radius: 0.125rem;
+			padding: 0.4375rem 0.5rem 0.1875rem 0.5rem;
+			cursor: pointer;
+			margin: 0 0.25rem;
+		}
+		> .tui-image-editor-item[tooltip-content] {
+			&:hover {
+				&:before {
+					content: "";
+					position: absolute;
+					display: inline-block;
+					margin: 0 auto 0;
+					width: 0;
+					height: 0;
+					border-right: 0.4375rem solid transparent;
+					border-top: 0.4375rem solid #2f2f2f;
+					border-left: 0.4375rem solid transparent;
+					left: 0.8125rem;
+					top: -0.125rem;
+				}
+				&:after {
+					content: attr(tooltip-content);
+					position: absolute;
+					display: inline-block;
+					background-color: $background_color_4;
+					color: $color_1;
+					padding: 0.3125rem 0.5rem;
+					font-size: 0.6875rem;
+					font-weight: lighter;
+					border-radius: 0.1875rem;
+					max-height: 1.4375rem;
+					top: -1.5625rem;
+					left: 0;
+					min-width: 1.5rem;
+				}
+			}
+		}
+		> .tui-image-editor-item.active {
+			background-color: $background_color_5;
+			transition: all 0.3s ease;
+		}
+	}
+	.tui-image-editor-grid-visual {
+		display: none;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border: 0.0625rem solid rgba(255, 255, 255, 0.7);
+		table {
+			width: 100%;
+			height: 100%;
+			border-collapse: collapse;
+			td {
+				border: 0.0625rem solid rgba(255, 255, 255, 0.3);
+			}
+			td.dot {
+				&:before {
+					content: "";
+					position: absolute;
+					box-sizing: border-box;
+					width: 0.625rem;
+					height: 0.625rem;
+					border: 0;
+					box-shadow: 0 0 0.0625rem 0 rgba(0, 0, 0, 0.3);
+					border-radius: 100%;
+					background-color: $background_color_5;
+				}
+			}
+			td.dot.left-top {
+				&:before {
+					top: -0.3125rem;
+					left: -0.3125rem;
+				}
+			}
+			td.dot.right-top {
+				&:before {
+					top: -0.3125rem;
+					right: -0.3125rem;
+				}
+			}
+			td.dot.left-bottom {
+				&:before {
+					bottom: -0.3125rem;
+					left: -0.3125rem;
+				}
+			}
+			td.dot.right-bottom {
+				&:before {
+					bottom: -0.3125rem;
+					right: -0.3125rem;
+				}
+			}
+		}
+	}
+	.tui-image-editor-main.tui-image-editor-menu-flip {
+		.tui-image-editor {
+			transition: none;
+		}
+		.tui-image-editor-grid-visual {
+			display: block;
+		}
+		.tui-image-editor-submenu {
+			> div.tui-image-editor-menu-flip {
+				display: table-cell;
+			}
+			display: table;
+		}
+	}
+	.tui-image-editor-main.tui-image-editor-menu-rotate {
+		.tui-image-editor {
+			transition: none;
+		}
+		.tui-image-editor-grid-visual {
+			display: block;
+		}
+		.tui-image-editor-submenu {
+			> div.tui-image-editor-menu-rotate {
+				display: table-cell;
+			}
+			display: table;
+		}
+	}
+	.tui-image-editor-submenu {
+		display: none;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 9.375rem;
+		white-space: nowrap;
+		z-index: 2;
+		.tui-image-editor-button {
+			&:hover {
+				svg {
+					> use.active {
+						display: block;
+					}
+				}
+			}
+		}
+		.tui-image-editor-submenu-item {
+			li {
+				display: inline-block;
+				vertical-align: top;
+			}
+			.tui-image-editor-newline {
+				display: block;
+				margin-top: 0;
+			}
+			.tui-image-editor-button {
+				position: relative;
+				cursor: pointer;
+				display: inline-block;
+				font-weight: normal;
+				font-size: 0.6875rem;
+				margin: 0 0.5625rem 0 0.5625rem;
+			}
+			.tui-image-editor-button.preset {
+				margin: 0 0.5625rem 1.25rem 0.3125rem;
+			}
+			label {
+				display: inline-block;
+				cursor: pointer;
+				padding-top: 0.3125rem;
+				font-family: $font_family;
+				font-size: 0.6875rem;
+			}
+			.tui-image-editor-button.apply {
+				label {
+					vertical-align: 0.4375rem;
+				}
+			}
+			.tui-image-editor-button.cancel {
+				label {
+					vertical-align: 0.4375rem;
+				}
+			}
+		}
+		> div {
+			display: none;
+			vertical-align: bottom;
+		}
+		.tui-image-editor-submenu-style {
+			opacity: 0.95;
+			z-index: -1;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: block;
+		}
+		svg {
+			> use {
+				display: none;
+			}
+			> use.normal {
+				display: block;
+			}
+		}
+	}
+	.tui-image-editor-partition {
+		> div {
+			width: 0.0625rem;
+			height: 3.25rem;
+			border-left: 0.0625rem solid #3c3c3c;
+			margin: 0 0.5rem 0 0.5rem;
+		}
+	}
+	.tui-image-editor-main.tui-image-editor-menu-filter {
+		.tui-image-editor-partition {
+			> div {
+				height: 6.75rem;
+				margin: 0 1.8125rem 0 0rem;
+			}
+		}
+		.tui-image-editor-submenu {
+			> div.tui-image-editor-menu-filter {
+				display: table-cell;
+			}
+			display: table;
+		}
+	}
+	.tui-image-editor-submenu-align {
+		text-align: left;
+		margin-right: 1.875rem;
+		label {
+			width: 3.4375rem;
+			white-space: nowrap;
+		}
+		&:first-child {
+			margin-right: 0;
+			label {
+				width: 4.375rem;
+			}
+		}
+	}
+	.tui-image-editor-main.tui-image-editor-menu-crop {
+		.tui-image-editor-submenu {
+			> div.tui-image-editor-menu-crop {
+				display: table-cell;
+			}
+			display: table;
+		}
+	}
+	.tui-image-editor-main.tui-image-editor-menu-shape {
+		.tui-image-editor-submenu {
+			> div.tui-image-editor-menu-shape {
+				display: table-cell;
+			}
+			display: table;
+		}
+	}
+	.tui-image-editor-main.tui-image-editor-menu-text {
+		.tui-image-editor-submenu {
+			> div.tui-image-editor-menu-text {
+				display: table-cell;
+			}
+			display: table;
+		}
+	}
+	.tui-image-editor-main.tui-image-editor-menu-mask {
+		.tui-image-editor-submenu {
+			> div.tui-image-editor-menu-mask {
+				display: table-cell;
+			}
+			display: table;
+		}
+	}
+	.tui-image-editor-main.tui-image-editor-menu-icon {
+		.tui-image-editor-submenu {
+			> div.tui-image-editor-menu-icon {
+				display: table-cell;
+			}
+			display: table;
+		}
+	}
+	.tui-image-editor-main.tui-image-editor-menu-draw {
+		.tui-image-editor-submenu {
+			> div.tui-image-editor-menu-draw {
+				display: table-cell;
+			}
+			display: table;
+		}
+	}
+	.filter-color-item {
+		display: inline-block;
+		.tui-image-editor-checkbox {
+			display: block;
+			margin-top: 0;
+			input {
+				& + label {
+					&:before {
+						left: -1rem;
+					}
+				}
+			}
+		}
+		.color-picker-control {
+			label {
+				font-color: #333;
+				font-weight: normal;
+				margin-right: 7pxleft;
+			}
+		}
+	}
+	.tui-image-editor-checkbox-wrap {
+		display: inline-block !important;
+		text-align: left;
+	}
+	.tui-image-editor-checkbox-wrap.fixed-width {
+		width: 11.6875rem;
+		white-space: normal;
+	}
+	.tui-image-editor-checkbox {
+		display: inline-block;
+		margin: 0.0625rem 0 0.0625rem 0;
+		input {
+			width: 0.875rem;
+			height: 0.875rem;
+			opacity: 0;
+			& + label {
+				color: $color_1;
+				height: 0.875rem;
+				position: relative;
+				&:before {
+					content: "";
+					position: absolute;
+					width: 0.875rem;
+					height: 0.875rem;
+					background-color: $background_color_5;
+					top: 0.375rem;
+					left: -1.1875rem;
+					display: inline-block;
+					margin: 0;
+					text-align: center;
+					font-size: 0.6875rem;
+					border: 0;
+					border-radius: 0.125rem;
+					padding-top: 0.0625rem;
+					box-sizing: border-box;
+				}
+			}
+		}
+		input[type="checkbox"] {
+			&:checked {
+				& + label {
+					&:before {
+						background-size: cover;
+						background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAMBJREFUKBWVkjEOwjAMRe2WgZW7IIHEDdhghhuwcQ42rlJugAQS54Cxa5cq1QM5TUpByZfS2j9+dlJVt/tX5ZxbS4ZU9VLkQvSHKTIGRaVJYFmKrBbTCJxE2UgCdDzMZDkHrOV6b95V0US6UmgKodujEZbJg0B0ZgEModO5lrY1TMQf1TpyJGBEjD+E2NPN7ukIUDiF/BfEXgRiGEw8NgkffYGYwCi808fpn/6OvfUfsDr/Vc1IfRf8sKnFVqeiVQfDu0tf/nWH9gAAAABJRU5ErkJggg==");
+					}
+				}
+			}
+		}
+	}
+	.tui-image-editor-selectlist-wrap {
+		position: relative;
+		select {
+			width: 100%;
+			height: 1.75rem;
+			margin-top: 0.25rem;
+			border: 0;
+			outline: 0;
+			border-radius: 0;
+			border: 0.0625rem solid #cbdbdb;
+			background-color: $background_color_5;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			padding: 0 0.4375rem 0 0.625rem;
+			&::-ms-expand {
+				display: none;
+			}
+		}
+		.tui-image-editor-selectlist {
+			display: none;
+			position: relative;
+			top: -0.0625rem;
+			border: 0.0625rem solid #ccc;
+			background-color: $background_color_5;
+			border-top: 0rem;
+			padding: 0.25rem 0;
+			li {
+				display: block;
+				text-align: left;
+				padding: 0.4375rem 0.625rem;
+				font-family: $font_family;
+				&:hover {
+					background-color: $background_color_6;
+				}
+			}
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			display: inline-block;
+			width: 0.875rem;
+			height: 0.875rem;
+			right: 0.3125rem;
+			top: 0.625rem;
+			background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAHlJREFUKBVjYBgFOEOAEVkmPDxc89+/f6eAYjzI4kD2FyYmJrOVK1deh4kzwRggGiQBVJCELAZig8SQNYHEmEEEMrh69eo1HR0dfqCYJUickZGxf9WqVf3IakBsFBthklpaWmVA9mEQhrJhUoTp0NBQCRAmrHL4qgAAuu4cWZOZIGsAAAAASUVORK5CYII=");
+			background-size: cover;
+		}
+	}
+	.tui-image-editor-virtual-range-bar {
+		.tui-image-editor-disabled {
+			backbround-color: #f00;
+		}
+		top: 0.4375rem;
+		position: absolute;
+		width: 100%;
+		height: 0.125rem;
+		background-color: $background_color_7;
+	}
+	.tui-image-editor-virtual-range-subbar {
+		.tui-image-editor-disabled {
+			backbround-color: #f00;
+		}
+		position: absolute;
+		height: 100%;
+		left: 0;
+		right: 0;
+		background-color: $background_color_8;
+	}
+	.tui-image-editor-virtual-range-pointer {
+		.tui-image-editor-disabled {
+			backbround-color: #f00;
+		}
+		position: absolute;
+		cursor: pointer;
+		top: -0.3125rem;
+		left: 0;
+		width: 0.75rem;
+		height: 0.75rem;
+		background-color: $background_color_5;
+		border-radius: 100%;
+	}
+	.tui-image-editor-range {
+		position: relative;
+		top: 0.3125rem;
+		width: 10.375rem;
+		height: 1.0625rem;
+		display: inline-block;
+	}
+	.tui-image-editor-range-wrap {
+		display: inline-block;
+		margin-left: 0.25rem;
+		label {
+			vertical-align: baseline;
+			font-size: 0.6875rem;
+			margin-right: 0.4375rem;
+			color: $color_1;
+		}
+	}
+	.tui-image-editor-range-wrap.short {
+		.tui-image-editor-range {
+			width: 6.25rem;
+		}
+	}
+	.color-picker-control {
+		.tui-image-editor-range {
+			width: 6.75rem;
+			margin-left: 0.625rem;
+		}
+		.tui-image-editor-virtual-range-pointer {
+			background-color: $background_color_9;
+		}
+		.tui-image-editor-virtual-range-bar {
+			background-color: $background_color_10;
+		}
+		.tui-image-editor-virtual-range-subbar {
+			background-color: $background_color_11;
+		}
+		position: absolute;
+		display: none;
+		z-index: 99;
+		width: 12rem;
+		background-color: $background_color_5;
+		box-shadow: 0 0.1875rem 1.375rem 0.375rem rgba(0, 0, 0, 0.15);
+		padding: 1rem;
+		border-radius: 0.125rem;
+		.tui-colorpicker-palette-toggle-slider {
+			display: none;
+		}
+		.tui-colorpicker-palette-button {
+			border: 0;
+			border-radius: 100%;
+			margin: 0.125rem;
+			background-size: cover;
+			font-size: 0.0625rem;
+		}
+		.tui-colorpicker-palette-button[title="var(--white)"] {
+			border: 0.0625rem solid #ccc;
+		}
+		.tui-colorpicker-palette-button[title=""] {
+			border: 0.0625rem solid #ccc;
+		}
+		.triangle {
+			width: 0;
+			height: 0;
+			border-right: 0.4375rem solid transparent;
+			border-top: 0.5rem solid var(--white);
+			border-left: 0.4375rem solid transparent;
+			position: absolute;
+			bottom: -0.5rem;
+			left: 5.25rem;
+		}
+		.tui-colorpicker-container {
+			width: 100%;
+			height: auto;
+		}
+		.tui-colorpicker-palette-container {
+			ul {
+				width: 100%;
+				height: auto;
+			}
+			width: 100%;
+			height: auto;
+		}
+	}
+	.tui-image-editor-range-wrap.tui-image-editor-newline.short {
+		margin-top: -0.125rem;
+		margin-left: 1.1875rem;
+		label {
+			color: $color_2;
+			font-weight: normal;
+		}
+	}
+	.tui-image-editor-range-value {
+		cursor: default;
+		width: 2.5rem;
+		height: 1.5rem;
+		outline: none;
+		border-radius: 0.125rem;
+		box-shadow: none;
+		border: 0.0625rem solid #d5d5d5;
+		text-align: center;
+		background-color: $background_color_12;
+		color: $color_1;
+		font-weight: lighter;
+		vertical-align: baseline;
+		font-family: $font_family;
+		margin-top: 1.3125rem;
+		margin-left: 0.25rem;
+	}
+	.tui-image-editor-controls {
+		position: absolute;
+		background-color: $background_color_2;
+		width: 100%;
+		height: 4rem;
+		display: table;
+		bottom: 0;
+		z-index: 2;
+		svg {
+			> use {
+				display: none;
+			}
+			> use.normal {
+				display: block;
+			}
+		}
+		.enabled {
+			svg {
+				&:hover {
+					> use.hover {
+						display: block;
+					}
+				}
+				> use.enabled {
+					display: block;
+				}
+				> use.normal {
+					display: none;
+				}
+			}
+		}
+		.normal {
+			svg {
+				&:hover {
+					> use.hover {
+						display: block;
+					}
+				}
+			}
+		}
+		.active {
+			svg {
+				&:hover {
+					> use.hover {
+						display: none;
+					}
+				}
+				> use.active {
+					display: block;
+				}
+				> use.normal {
+					display: none;
+				}
+			}
+		}
+		&:hover {
+			z-index: 3;
+		}
+	}
+	.tui-image-editor-icpartition {
+		display: inline-block;
+		background-color: $background_color_1;
+		width: 0.0625rem;
+		height: 1.5rem;
+	}
+	#tie-icon-add-button {
+		.tui-image-editor-button {
+			min-width: 2.625rem;
+		}
+	}
+	.svg_ic-menu {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+	.svg_ic-submenu {
+		width: 2rem;
+		height: 2rem;
+	}
+	.svg_img-bi {
+		width: 16.0625rem;
+		height: 1.625rem;
+	}
+	div.tui-colorpicker-clearfix {
+		width: 9.9375rem;
+		height: 1.75rem;
+		border: 0.0625rem solid #d5d5d5;
+		border-radius: 0.125rem;
+		background-color: $background_color_13;
+		margin-top: 0.375rem;
+		padding: 0.25rem 0.4375rem 0.25rem 0.4375rem;
+	}
+	.tui-colorpicker-palette-hex {
+		width: 7.125rem;
+		background-color: $background_color_13;
+		border: 0;
+		font-size: 0.6875rem;
+		margin-top: 0.125rem;
+		font-family: $font_family;
+	}
+	.tui-colorpicker-palette-hex[value="var(--white)"] {
+		& + .tui-colorpicker-palette-preview {
+			border: 0.0625rem solid #ccc;
+		}
+	}
+	.tui-colorpicker-palette-hex[value=""] {
+		& + .tui-colorpicker-palette-preview {
+			border: 0.0625rem solid #ccc;
+			background-size: cover;
+			background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAdBJREFUWAnFl0FuwjAQRZ0ukiugHqFSOQNdseuKW3ALzkA4BateICvUGyCxrtRFd4WuunH/TzykaYJrnLEYaTJJsP2+x8GZZCbQrLU5mj7Bn+EP8HvnCObd+R7xBV5lWfaNON4AnsA38E94qLEt+0yiFaBzAV/Bv+Cxxr4co7hKCDpw1q9wLeNYYdlAwyn8TYt8Hme3+8D5ozcTaMCZ68PXa2tnM2sbEcOZAJhrrpl2DAcTOGNjZPSfCdzkw6JrfbiMv+osBe4y9WOedhm4jZfhbENWuxS44H9Wz/xw4WzqLOAqh1+zycgAwzEMzr5k5gaHOa9ULBwuuDkFlHI1Kl4PJ66kgIpnoywOTmRFAYcbwYk9UMApWkD8zAV5ihcwHk4Rx7gl0IFTQL0EFc+CTQ9OZHWH3YhlVJiVpTHbrTGLhTHLZVgff6s9lyBsI9KduSS83oj+34rTwJutmBmCnMsvozRwZqB5GTkBw6/jdPDu69iJ6BYk6eCcfbcgcQIK/MByaaiMqm8rHcjol2TnpWDhyAKSGdA3FrxtJUToX0ODqatetfGE+8tyEUOV8GY5dGRwLP/MBS4RHQr4bT7NRAQjlcOTfZxmv2G+c4hI8nn+Ax5PG/zhI393AAAAAElFTkSuQmCC");
+		}
+	}
+	.tui-colorpicker-palette-preview {
+		border-radius: 100%;
+		float: left;
+		width: 1.0625rem;
+		height: 1.0625rem;
+		border: 0;
+	}
+	.color-picker {
+		width: 100%;
+		height: auto;
+	}
+	.color-picker-value {
+		width: 2rem;
+		height: 2rem;
+		border: 0rem;
+		border-radius: 100%;
+		margin: auto;
+		margin-bottom: 0.0625rem;
+		& + label {
+			color: $color_1;
+		}
+	}
+	.color-picker-value.transparent {
+		border: 0.0625rem solid #cbcbcb;
+		background-size: cover;
+		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAdBJREFUWAnFl0FuwjAQRZ0ukiugHqFSOQNdseuKW3ALzkA4BateICvUGyCxrtRFd4WuunH/TzykaYJrnLEYaTJJsP2+x8GZZCbQrLU5mj7Bn+EP8HvnCObd+R7xBV5lWfaNON4AnsA38E94qLEt+0yiFaBzAV/Bv+Cxxr4co7hKCDpw1q9wLeNYYdlAwyn8TYt8Hme3+8D5ozcTaMCZ68PXa2tnM2sbEcOZAJhrrpl2DAcTOGNjZPSfCdzkw6JrfbiMv+osBe4y9WOedhm4jZfhbENWuxS44H9Wz/xw4WzqLOAqh1+zycgAwzEMzr5k5gaHOa9ULBwuuDkFlHI1Kl4PJ66kgIpnoywOTmRFAYcbwYk9UMApWkD8zAV5ihcwHk4Rx7gl0IFTQL0EFc+CTQ9OZHWH3YhlVJiVpTHbrTGLhTHLZVgff6s9lyBsI9KduSS83oj+34rTwJutmBmCnMsvozRwZqB5GTkBw6/jdPDu69iJ6BYk6eCcfbcgcQIK/MByaaiMqm8rHcjol2TnpWDhyAKSGdA3FrxtJUToX0ODqatetfGE+8tyEUOV8GY5dGRwLP/MBS4RHQr4bT7NRAQjlcOTfZxmv2G+c4hI8nn+Ax5PG/zhI393AAAAAElFTkSuQmCC");
+	}
+}
+.tui-image-editor-container.left {
+	.tui-image-editor-menu {
+		> .tui-image-editor-item[tooltip-content] {
+			&:before {
+				left: 1.75rem;
+				top: 0.6875rem;
+				border-right: 0.4375rem solid #2f2f2f;
+				border-top: 0.4375rem solid transparent;
+				border-bottom: 0.4375rem solid transparent;
+			}
+			&:after {
+				top: 0.4375rem;
+				left: 2.625rem;
+				white-space: nowrap;
+			}
+		}
+		white-space: inherit;
+	}
+	.tui-image-editor-submenu {
+		left: 0;
+		height: 100%;
+		width: 15.5rem;
+		white-space: normal;
+		> div {
+			vertical-align: middle;
+		}
+		.tui-image-editor-partition {
+			display: block;
+			width: 75%;
+			margin: auto;
+			> div {
+				border-left: 0;
+				height: 0.625rem;
+				border-bottom: 0.0625rem solid #3c3c3c;
+				width: 100%;
+				margin: 0;
+			}
+		}
+		.tui-image-editor-submenu-align {
+			margin-right: 0;
+		}
+		.tui-image-editor-submenu-item {
+			li {
+				margin-top: 0.9375rem;
+			}
+			.tui-colorpicker-clearfix {
+				li {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	.tui-image-editor-main-container {
+		left: 4rem;
+		width: calc(100% - 4rem);
+		height: 100%;
+	}
+	.tui-image-editor-controls {
+		width: 4rem;
+		height: 100%;
+		display: table;
+		li {
+			display: inline-block;
+			margin: 0.25rem auto;
+		}
+	}
+	.tui-image-editor-icpartition {
+		position: relative;
+		top: -0.4375rem;
+		width: 1.5rem;
+		height: 0.0625rem;
+	}
+	.tui-image-editor-checkbox-wrap.fixed-width {
+		width: 11.375rem;
+		white-space: normal;
+	}
+	.tui-image-editor-range-wrap.tui-image-editor-newline {
+		label.range {
+			display: block;
+			text-align: left;
+			width: 75%;
+			margin: auto;
+		}
+	}
+	.tui-image-editor-range {
+		width: 8.5rem;
+	}
+}
+.tui-image-editor-container.right {
+	.tui-image-editor-menu {
+		white-space: inherit;
+		> .tui-image-editor-item[tooltip-content] {
+			&:before {
+				left: -0.1875rem;
+				top: 0.6875rem;
+				border-left: 0.4375rem solid #2f2f2f;
+				border-top: 0.4375rem solid transparent;
+				border-bottom: 0.4375rem solid transparent;
+			}
+			&:after {
+				top: 0.4375rem;
+				left: unset;
+				right: 2.6875rem;
+				white-space: nowrap;
+			}
+		}
+	}
+	.tui-image-editor-submenu {
+		white-space: normal;
+		right: 0;
+		height: 100%;
+		width: 15.5rem;
+		> div {
+			vertical-align: middle;
+		}
+		.tui-image-editor-partition {
+			display: block;
+			width: 75%;
+			margin: auto;
+			> div {
+				border-left: 0;
+				height: 0.625rem;
+				border-bottom: 0.0625rem solid #3c3c3c;
+				width: 100%;
+				margin: 0;
+			}
+		}
+		.tui-image-editor-submenu-align {
+			margin-right: 0;
+		}
+		.tui-image-editor-submenu-item {
+			li {
+				margin-top: 0.9375rem;
+			}
+			.tui-colorpicker-clearfix {
+				li {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	.tui-image-editor-controls {
+		li {
+			display: inline-block;
+			margin: 0.25rem auto;
+		}
+		right: 0;
+		width: 4rem;
+		height: 100%;
+		display: table;
+	}
+	.tui-image-editor-icpartition {
+		position: relative;
+		top: -0.4375rem;
+		width: 1.5rem;
+		height: 0.0625rem;
+	}
+	.tui-image-editor-checkbox-wrap.fixed-width {
+		width: 11.375rem;
+		white-space: normal;
+	}
+	.tui-image-editor-range-wrap.tui-image-editor-newline {
+		label.range {
+			display: block;
+			text-align: left;
+			width: 75%;
+			margin: auto;
+		}
+	}
+	.tui-image-editor-range {
+		width: 8.5rem;
+	}
+	.tui-image-editor-main-container {
+		right: 4rem;
+		width: calc(100% - 4rem);
+		height: 100%;
+	}
+}
+.tui-image-editor-container.top {
+	.tui-image-editor-submenu {
+		.tui-image-editor-partition.only-left-right {
+			display: none;
+		}
+		top: 0;
+		bottom: inherit;
+		> div {
+			padding-top: 1.5rem;
+			vertical-align: top;
+		}
+	}
+	.color-picker-control {
+		.triangle {
+			top: -0.5rem;
+			border-right: 0.4375rem solid transparent;
+			border-top: 0rem;
+			border-left: 0.4375rem solid transparent;
+			border-bottom: 0.5rem solid var(--white);
+		}
+	}
+	.tui-image-editor-size-wrap {
+		height: 100%;
+	}
+	.tui-image-editor-main-container {
+		bottom: 0;
+	}
+	.tui-image-editor-menu {
+		> .tui-image-editor-item[tooltip-content] {
+			&:before {
+				left: 0.8125rem;
+				border-top: 0;
+				border-bottom: 0.4375rem solid #2f2f2f;
+				top: 2.0625rem;
+			}
+			&:after {
+				top: 2.375rem;
+			}
+		}
+	}
+	.tui-image-editor-controls-logo {
+		display: table-cell;
+	}
+	.tui-image-editor-controls-buttons {
+		display: table-cell;
+	}
+	.tui-image-editor-main {
+		top: 4rem;
+		height: calc(100% - 4rem);
+	}
+	.tui-image-editor-controls {
+		top: 0;
+		bottom: inherit;
+	}
+}
+.tui-image-editor-container.bottom {
+	.tui-image-editor-submenu {
+		.tui-image-editor-partition.only-left-right {
+			display: none;
+		}
+		> div {
+			padding-bottom: 1.5rem;
+		}
+	}
+}
+#tie-icon-add-button.icon-bubble {
+	.tui-image-editor-button[data-icontype="icon-bubble"] {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-icon-add-button.icon-heart {
+	.tui-image-editor-button[data-icontype="icon-heart"] {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-icon-add-button.icon-location {
+	.tui-image-editor-button[data-icontype="icon-location"] {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-icon-add-button.icon-polygon {
+	.tui-image-editor-button[data-icontype="icon-polygon"] {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-icon-add-button.icon-star {
+	.tui-image-editor-button[data-icontype="icon-star"] {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-icon-add-button.icon-star-2 {
+	.tui-image-editor-button[data-icontype="icon-star-2"] {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-icon-add-button.icon-arrow-3 {
+	.tui-image-editor-button[data-icontype="icon-arrow-3"] {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-icon-add-button.icon-arrow-2 {
+	.tui-image-editor-button[data-icontype="icon-arrow-2"] {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-icon-add-button.icon-arrow {
+	.tui-image-editor-button[data-icontype="icon-arrow"] {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-draw-line-select-button.line {
+	.tui-image-editor-button.line {
+		svg {
+			> use.normal {
+				display: none;
+			}
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-draw-line-select-button.free {
+	.tui-image-editor-button.free {
+		svg {
+			> use.normal {
+				display: none;
+			}
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-flip-button.resetFlip {
+	.tui-image-editor-button.resetFlip {
+		svg {
+			> use.normal {
+				display: none;
+			}
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-flip-button.flipX {
+	.tui-image-editor-button.flipX {
+		svg {
+			> use.normal {
+				display: none;
+			}
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-flip-button.flipY {
+	.tui-image-editor-button.flipY {
+		svg {
+			> use.normal {
+				display: none;
+			}
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-mask-apply.apply.active {
+	.tui-image-editor-button.apply {
+		label {
+			color: $color_1;
+		}
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-crop-button {
+	.tui-image-editor-button.apply {
+		margin-right: 1.5rem;
+	}
+	.tui-image-editor-button.preset.active {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+	.tui-image-editor-button.apply.active {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-crop-preset-button {
+	.tui-image-editor-button.apply {
+		margin-right: 1.5rem;
+	}
+	.tui-image-editor-button.preset.active {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+	.tui-image-editor-button.apply.active {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-shape-button.rect {
+	.tui-image-editor-button.rect {
+		svg {
+			> use.normal {
+				display: none;
+			}
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-shape-button.circle {
+	.tui-image-editor-button.circle {
+		svg {
+			> use.normal {
+				display: none;
+			}
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-shape-button.triangle {
+	.tui-image-editor-button.triangle {
+		svg {
+			> use.normal {
+				display: none;
+			}
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-text-effect-button {
+	.tui-image-editor-button.active {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-text-align-button.left {
+	.tui-image-editor-button.left {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-text-align-button.center {
+	.tui-image-editor-button.center {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-text-align-button.right {
+	.tui-image-editor-button.right {
+		svg {
+			> use.active {
+				display: block;
+			}
+		}
+	}
+}
+#tie-mask-image-file {
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 0.0625rem solid #008000;
+	cursor: inherit;
+	left: 0;
+	top: 0;
+}
+#tie-icon-image-file {
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 0.0625rem solid #008000;
+	cursor: inherit;
+	left: 0;
+	top: 0;
+}
+.tui-image-editor-container.top.tui-image-editor-top-optimization {
+	.tui-image-editor-controls {
+		ul {
+			text-align: right;
+		}
+	}
+	.tui-image-editor-controls-logo {
+		display: none;
+	}
+}

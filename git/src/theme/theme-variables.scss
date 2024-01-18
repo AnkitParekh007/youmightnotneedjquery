@@ -1,0 +1,134 @@
+@import "./environments";
+
+/*
+ * Application global variables.
+ */
+
+// Set font path
+$roboto-font-path: "https://fonts.googleapis.com/css?family=Roboto:400,500,700" !default;
+$icomoon-fonts-path: $asset-cdn-path + "/assets/fonts/icomoon.woff" !default;
+$google-font-path: $asset-cdn-path + "/assets/fonts/googleFonts.woff2" !default;
+$nucleo-font-path: $asset-cdn-path + "/assets/fonts/nucleo-icons.woff2" !default;
+$fa-brand-icons-font-path: $asset-cdn-path + "/assets/fonts/fa-brands-regular-400.otf" !default;
+$fa-regular-icons-font-path: $asset-cdn-path + "/assets/fonts/fa-brands-regular-400.otf" !default;
+$fa-solid-icons-font-path: $asset-cdn-path + "/assets/fonts/fa-solid-900.otf" !default;
+$material-design-icons-font-path: "~material-design-icons-iconfont/dist/fonts/" !default;
+$material-symbol-icons-path: $asset-cdn-path + "/assets/fonts/MaterialSymbolIcons.woff2" !default;
+// ---------------------------------------------------------------------------
+// Bootstrap variables
+//
+// Override Bootstrap variables here to suite your theme.
+// Copy variables you want to customize from node_modules/bootstrap/scss/_variables.scss
+
+//
+// Color system
+//
+
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #868e96;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+$blue: #0073dd;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+
+$theme-colors: (
+	primary: $blue,
+	secondary: $gray-600,
+	success: $green,
+	info: $cyan,
+	warning: $yellow,
+	danger: $red,
+	light: $gray-100,
+	dark: $gray-800
+);
+
+$amaze-primary-clr: #262262;
+$amaze-secondary-clr: #0080c6;
+
+// below defines your custom color to build a theme palette from
+$amaze-primary: (
+	50: $amaze-primary-clr,
+	100: $amaze-primary-clr,
+	200: $amaze-primary-clr,
+	300: $amaze-primary-clr,
+	400: $amaze-primary-clr,
+	500: $amaze-primary-clr,
+	600: $amaze-primary-clr,
+	700: $amaze-primary-clr,
+	800: $amaze-primary-clr,
+	900: $amaze-primary-clr,
+	A100: $amaze-primary-clr,
+	A200: $amaze-primary-clr,
+	A400: $amaze-primary-clr,
+	A700: $amaze-primary-clr,
+	contrast: (
+		50: $white,
+		100: $white,
+		200: $white,
+		300: $white,
+		400: $white,
+		500: $white,
+		600: $white,
+		700: $white,
+		800: $white,
+		900: $white,
+		A100: $white,
+		A200: $white,
+		A400: $white,
+		A700: $white
+	)
+);
+
+$amaze-secondary: (
+	50: $amaze-primary-clr,
+	100: $amaze-primary-clr,
+	200: $amaze-primary-clr,
+	300: $amaze-primary-clr,
+	400: $amaze-primary-clr,
+	500: $amaze-primary-clr,
+	600: $amaze-primary-clr,
+	700: $amaze-primary-clr,
+	800: $amaze-primary-clr,
+	900: $amaze-primary-clr,
+	A100: $amaze-primary-clr,
+	A200: $amaze-primary-clr,
+	A400: $amaze-primary-clr,
+	A700: $amaze-primary-clr,
+	contrast: (
+		50: $white,
+		100: $white,
+		200: $white,
+		300: $white,
+		400: $white,
+		500: $white,
+		600: $white,
+		700: $white,
+		800: $white,
+		900: $white,
+		A100: $white,
+		A200: $white,
+		A400: $white,
+		A700: $white
+	)
+);
+
+// Use Bootstrap defaults for other variables, imported here so we can access all app variables in one place when used
+// in components.
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";

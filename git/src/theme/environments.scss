@@ -1,0 +1,2 @@
+$asset-cdn-versioned-path : "https://amazepg-bm-cdn-asset" + random(6) + ".bluemeteor.com";
+$asset-cdn-path : $asset-cdn-versioned-path !default;

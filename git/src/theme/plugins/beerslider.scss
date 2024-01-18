@@ -1,0 +1,131 @@
+.beer-slider {
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+}
+.beer-slider *,
+.beer-slider:after,
+.beer-slider :after,
+.beer-slider:before,
+.beer-slider :before {
+	box-sizing: border-box;
+}
+.beer-slider img,
+.beer-slider svg {
+	vertical-align: bottom;
+}
+.beer-slider > * {
+	height: 100%;
+}
+.beer-slider > img {
+	height: auto;
+	max-width: 100%;
+}
+.beer-reveal {
+	left: 0;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	right: 50%;
+	top: 0;
+	transition: opacity 0.35s;
+	z-index: 1;
+}
+.beer-reveal > :first-child {
+	height: 100%;
+	max-width: none;
+	width: 200%;
+}
+.beer-reveal > img:first-child {
+	height: auto;
+}
+.beer-range {
+	-moz-appearance: none;
+	-ms-touch-action: auto;
+	-webkit-appearance: slider-horizontal !important;
+	bottom: 0;
+	cursor: pointer;
+	height: 100%;
+	left: -0.0625rem;
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	touch-action: auto;
+	width: calc(100% + 0.125rem);
+	z-index: 2;
+}
+.beer-range::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 300vh;
+}
+.beer-range::-moz-range-thumb {
+	-webkit-appearance: none;
+	height: 300vh;
+}
+.beer-range::-ms-tooltip {
+	display: none;
+}
+.beer-handle {
+	background: hsla(0, 0%, 100%, 0.5);
+	border-radius: 50%;
+	box-shadow: 0 0 0.375rem transparent;
+	color: var(--black);
+	height: 3rem;
+	left: 50%;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 50%;
+	transform: translate3d(-50%, -50%, 0);
+	transition: background 0.3s, box-shadow 0.3s, opacity 0.5s 0.25s;
+	width: 3rem;
+	z-index: 2;
+}
+.beer-handle:after,
+.beer-handle:before {
+	border-left: 0.125rem solid;
+	border-top: 0.125rem solid;
+	content: "";
+	height: 0.625rem;
+	position: absolute;
+	top: 50%;
+	transform-origin: 0 0;
+	width: 0.625rem;
+}
+.beer-handle:before {
+	left: 0.625rem;
+	transform: rotate(-45deg);
+}
+.beer-handle:after {
+	right: 0;
+	transform: rotate(135deg);
+}
+.beer-range:focus ~ .beer-handle {
+	background: hsla(0, 0%, 100%, 0.85);
+	box-shadow: 0 0 0.1875rem rgba(0, 0, 0, 0.4);
+}
+.beer-reveal[data-beer-label]:after,
+.beer-slider[data-beer-label]:after {
+	background: hsla(0, 0%, 100%, 0.75);
+	border-radius: 0.125rem;
+	content: attr(data-beer-label);
+	line-height: 1;
+	padding: 0.5rem;
+	position: absolute;
+	top: 1.5rem;
+}
+.beer-slider[data-beer-label]:after {
+	right: 1.5rem;
+}
+.beer-reveal[data-beer-label]:after {
+	left: 1.5rem;
+}
+.beer-reveal[data-beer-label=""]:after,
+.beer-slider[data-beer-label=""]:after {
+	content: none;
+}
+.beer-ready .beer-handle,
+.beer-ready .beer-reveal {
+	opacity: 1;
+}
