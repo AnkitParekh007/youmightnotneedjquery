@@ -1,0 +1,34 @@
+/*
+ * Entry point of global application style.
+ * Component-specific style should not go here and be included directly as part of the components.
+ */
+
+// Theme variables, must be included before the libraries to allow overriding defaults
+@use "~@angular/material" as mat;
+@import "theme/theme-variables";
+// 3rd party libraries
+@import "~bootstrap/scss/bootstrap";
+// 3rd party libraries
+@import "~material-design-icons-iconfont/dist/material-design-icons.css";
+// Angular Material custom theme
+// The mixins below must be included once so we separated them from the variables
+// Theme customization
+@import "theme/fonts";
+@import "theme/theme";
+// Material Icons Filled & Outlined
+@import "material-icons/iconfont/outlined.css";
+@import "theme/plugins";
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+$amaze-app-primary: mat.define-palette($amaze-primary, 700, 800, 900);
+$amaze-app-accent: mat.define-palette($amaze-primary, 700, 800, 900);
+$amaze-app-warn: mat.define-palette(mat.$amber-palette, 700, 800, 900);
+$amaze-app-theme: mat.define-light-theme($amaze-app-primary, $amaze-app-accent, $amaze-app-warn);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($amaze-app-theme);
+// helpers
+@import "theme/helpers";

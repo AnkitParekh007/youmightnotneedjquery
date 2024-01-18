@@ -1,0 +1,19 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"skipLibCheck": true,
+		"baseUrl": "./",
+		"outDir": "../out-tsc/app",
+		"types": ["jquery", "jquery.fancytree", "underscore"],
+		"paths": {
+			"@app/*": ["app/*"],
+			"@env/*": ["environments/*"],
+			"@assets/*": ["assets/*"],
+			"@translations/*": ["translations/*"]
+		}
+	},
+	"exclude": ["test.ts", "**/*.spec.ts", "**/*.mock.ts", "src/assets/frames/*.html"],
+	"angularCompilerOptions": {
+		"preserveWhitespaces": true
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"name": "Amaze",
+	"short_name": "Amaze",
+	"theme_color": "#6438a7",
+	"background_color": "#6438a7",
+	"scope": "/",
+	"start_url": "/",
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "https://amaze.bluemeteor.com/bm_logo.ico",
+			"sizes": "32x32",
+			"type": "image/png"
+		}
+	]
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Amaze</title>
+		<base href="/" />
+		<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#4e8ef7" />
+		<link rel="manifest" href="manifest.json" />
+		<link rel="preload" href="https://amazeplayground2-0-bm-cdn-asset1.bluemeteor.com/assets/img/logo/new_03_06_2023/bm_bounce_ball.gif" as="image" />
+		<!-- add to homescreen for ios -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+		<link rel="icon" type="image/x-icon" href="bm_logo.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+		<script type="text/javascript" src="https://amazeplayground2-0-bm-cdn-asset1.bluemeteor.com/assets/plugins/across-tabs/across-tabs.min.js"></script>
+		<script type="text/javascript" src="https://amazeplayground2-0-bm-cdn-asset1.bluemeteor.com/assets/plugins/across-tabs/amaze-bridge-connect.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var checkComingFromGoogleRedirect = function (_googleRedirectUrl) {
+				var strToObj = function (str) {
+					var obj = {};
+					if (str && typeof str === "string") {
+						var objStr = str.match(/\{(.)+\}/g);
+						eval("obj =" + objStr);
+					}
+					return obj;
+				};
+				var getClientCodeFromAuth = function (_url) {
+					var url = new URL(_url);
+					var ss = strToObj(url.searchParams.get("state"));
+					return ss.customerCode;
+				};
+				let cc = getClientCodeFromAuth(_googleRedirectUrl);
+				localStorage.setItem("cc", cc);
+				localStorage.setItem("googleAuthencticationParams", _googleRedirectUrl);
+				document.getElementsByTagName("BODY")[0].setAttribute("clientcode", cc);
+				document.getElementsByTagName("BODY")[0].setAttribute("googleAuthencticationParams", _googleRedirectUrl);
+			};
+			if (location.pathname.indexOf("index.html") !== -1) {
+				checkComingFromGoogleRedirect(location.href);
+			} else {
+				localStorage.removeItem("cc");
+				localStorage.removeItem("googleAuthencticationParams");
+				document.getElementsByTagName("BODY")[0].removeAttribute("clientcode");
+				document.getElementsByTagName("BODY")[0].removeAttribute("googleAuthencticationParams");
+			}
+		</script>
+		<noscript>
+			<p>This page requires JavaScript to work properly. Please enable JavaScript in your browser.</p>
+		</noscript>
+		<app-root id="amazeRootDiv" class="animated fadeIn">
+			<div>
+				<style type="text/css">
+					#preloaderImg {
+						position: relative;
+						display: block;
+						z-index: 0;
+						margin: calc(25vh) auto 0;
+					}
+				</style>
+				<img id="preloaderImg" src="https://amazeplayground2-0-bm-cdn-asset1.bluemeteor.com/assets/img/logo/new_03_06_2023/bm_bounce_ball.gif" />
+			</div>
+		</app-root>
+	</body>
+</html>
