@@ -1,0 +1,161 @@
+@use "helpers";
+
+#catalogListMenu {
+	width: 16.875rem;
+}
+.amaze-side-nav,
+.amaze-side-nav-secondary {
+	min-width: 16.875rem;
+	width: 100%;
+	&.catalog-menu {
+		min-width: 16.25rem;
+	}
+	.mat-divider {
+		border-top-color: transparent !important;
+	}
+}
+
+.amml-item,
+.amml-data {
+	height: 2.5rem !important;
+	line-height: 2.5rem !important;
+}
+
+.anml-data label {
+	white-space: nowrap;
+	width: calc(100% - 2.5rem);
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.amml-svg-icon{
+	margin-top : 0 !important
+}
+@mixin width($value) {
+	min-width: $value;
+	width: $value;
+}
+@mixin common-styles {
+	background-color: var(--primary-amaze-color);
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+.amazeSideNav,
+.amazeSideNavCollapsed {
+	@include common-styles;
+	@include width(3.125rem);
+}
+.amazeSideNavExpanded {
+	@include common-styles;
+	@include width(16.875rem);
+}
+.max-sidenav-height {
+	max-height: calc(80vh - 6.25rem);
+}
+.amaze-logo {
+	box-shadow: none !important;
+	/* transition: all 0.20s ease-in-out */
+	img {
+		width: 11.875rem;
+	    padding-top: 0.9375rem;
+	    padding-bottom: 0.625rem;
+	    margin-left: 1.25rem;
+	    height: 5.3125rem;
+	    position: relative;
+	    top: -0.75rem;
+	}
+	span.material-icons {
+		padding-left: 1.5625rem;
+		position: relative;
+		top: 1.25rem;
+		height: 1.25rem;
+	}
+}
+.amaze-logo-default {
+	img {
+		width: 2.625rem;
+	    height: 3.875rem;
+	    padding-top: 0.9375rem;
+	    padding-bottom: 0.625rem;
+	    margin-left: 0.625rem;
+	    position: relative;
+	    left: -0.25rem;
+	}
+	span.material-icons {
+		padding-left: 1.5625rem;
+		position: relative;
+		top: 1.25rem;
+		height: 1.25rem;
+	}
+}
+#mainMenu {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: calc(100vh - 4.0625rem);
+	.mat-list-item-content {
+		padding: 0 !important;
+		.anml-link {
+			padding: 0 0.875rem !important;
+		}
+		&:hover {
+			mat-icon,
+			span {
+				color: var(--secondary-amaze-color) !important;
+			}
+		}
+	}
+}
+.secondary-menu {
+	position: sticky;
+	bottom: 0;
+	left: 0;
+}
+.amaze-logo {
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+.main-menu-image-hidden {
+	visibility: hidden;
+	height: 0rem;
+}
+.main-menu-image-visible {
+	visibility: visible;
+	height: 4rem;
+}
+.mat-drawer-inner-container::-webkit-scrollbar {
+	display: none;
+}
+
+.amml-menu-container {
+	max-height: 35vh !important;
+	overflow: hidden auto !important;
+	overflow-y: scroll;
+}
+.amml-menu-container::-webkit-scrollbar {
+	width: 0.625rem;
+}
+.amml-menu-container::-webkit-scrollbar-thumb {
+	width: 0.625rem;
+	border-radius: 1.25rem;
+	background-color: #a7a7a7;
+}
+.amml-menu-container::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 0.375rem #a7a7a7;
+	background-color: var(--white);
+	border-radius: 1.25rem;
+}
+.level-2.has-amml-submenu,
+has-anml-submenu {
+	mat-list-item {
+		background-color: white !important;
+		&:hover {
+			color: var(--secondary-amaze-color) !important;
+		}
+		color: var(--primary-amaze-color) !important;
+		.label {
+			font-weight: 500 !important;
+		}
+	}
+}

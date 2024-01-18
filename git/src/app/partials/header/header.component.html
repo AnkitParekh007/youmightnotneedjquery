@@ -1,0 +1,66 @@
+<mat-toolbar *ngIf="isLoggedIn$" id="site-header" class="mat-elevation-z10">
+	<mat-toolbar-row>
+		<div *ngIf="checkLocation()" class="breadcrumb-wrapper">
+			<amaze-breadcrumbs></amaze-breadcrumbs>
+		</div>
+		<div class="flex-spacer"></div>
+		<button
+			(click)="visitRecentCatalog()"
+			*ngIf="recentCatalog && showRecentCatalog()"
+			matTooltip="Go to recently visited catalog : {{ recentCatalog.catalogName }}"
+			matTooltipPosition="above"
+			mat-stroked-button
+			color="primary"
+			[class.max-w-10-per]="isMiniLaunch"
+			class="rounded-pill thin-btn recent-catalog-trigger"
+			[ngClass]="{ 'mr-2': !isMiniLaunch, 'pl-1': isMiniLaunch }">
+			<span *ngIf="!isMiniLaunch">Recent Catalog</span>
+			<mat-icon
+				fontSet="material-icons-outlined"
+				class="mx-1 position-relative top--1 md"
+				[ngClass]="{
+					'fa-rotate-180 mt-1': !isMiniLaunch,
+					'mt-2': isMiniLaunch
+				}"
+				>{{ !isMiniLaunch ? "keyboard_backspace" : "near_me" }}</mat-icon
+			>
+			<span>{{ recentCatalog.catalogName }}</span>
+		</button>
+		<button matTooltip="Go To Channel Dashboard" matTooltipPosition="above" *ngIf="isChannelPage" (click)="launchChannelDashboard()" mat-icon-button class="channel-dashboard-trigger">
+			<i class="fas fa-briefcase text-primary"></i>
+		</button>
+		<mat-slide-toggle #lockToggle class="font-weight-500 lock-sidenav-toggle" [(ngModel)]="appState.lockSidenav" [class.pl-2]="isMiniLaunch" matTooltip="{{ lockToggle.checked ? 'Unlock' : 'Lock' }} Sidenav" (change)="lockSideNav($event)" mattooltipPosition="below"></mat-slide-toggle>
+		<button matTooltip="Go Full Screen" matTooltipPosition="above" *ngIf="!isFullScreen" (click)="openFullscreen()" mat-icon-button class="mr-2 fullscreen-toggle">
+			<mat-icon>fullscreen</mat-icon>
+		</button>
+		<button matTooltip="Exit Full Screen" matTooltipPosition="above" *ngIf="isFullScreen" (click)="closeFullscreen()" mat-icon-button class="mr-2">
+			<mat-icon>fullscreen_exit</mat-icon>
+		</button>
+		<div
+			class="d-flex px-0 toolbar-customer-code-container border-right curDef"
+			matTooltip="Customer Name: {{ appState.userInfo.fullCustomerName }}"
+			matTooltipPosition="below">
+			<img src="assets/missing-icons/business_center.svg" class="pr-1" height="21px" width="21px" />
+			<!-- Business Center Outline - Temporary Icon Injection -->
+			<span class="customer-name">{{ appState.userInfo.customerCode }}</span>
+		</div>
+		<div class="toolbar-external-icons-container" [matMenuTriggerFor]="usermenu" matRipple>
+			<div class="media align-items-center">
+				<div class="media-body mr-2 d-none d-lg-block small">
+					<span class="mb-0 text-sm" *ngIf="loggedInUser">Hi, {{ loggedInUser.userFirstName }}</span>
+					<span class="mb-0 text-sm" *ngIf="!loggedInUser">Hi, User</span>
+				</div>
+				<span class="avatar avatar-sm rounded-circle">
+					<img class="lazy" *ngIf="loggedInUser && loggedInUser.picture" [alt]="loggedInUser.name" [src]="loggedInUser.picture" (error)="setDefaultPic($event)" />
+					<img *ngIf="loggedInUser && !loggedInUser.picture" src="assets/img/userIcon.png" />
+				</span>
+			</div>
+			<mat-menu class="p-0" id="usermenu" #usermenu="matMenu" xPosition="before" yPosition="below">
+				<button [routerLink]="['/user/profile']" mat-menu-item><mat-icon class="mr-2">person_outline</mat-icon><span style="font-size: 14px">My Profile</span></button>
+				<button (click)="lockScreen()" mat-menu-item><mat-icon class="mr-2">lock_outline</mat-icon><span style="font-size: 14px">Lock Screen</span></button>
+				<button (click)="logout()" mat-menu-item><mat-icon class="mr-2">power_settings_new</mat-icon><span style="font-size: 14px">Logout</span></button>
+			</mat-menu>
+		</div>
+		<app-language-selector></app-language-selector>
+	</mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,43 @@
+#site-header {
+	background: var(--white);
+}
+#site-header .flex-spacer {
+	flex-grow: 1;
+}
+#site-header {
+	.mat-toolbar-row {
+		padding: 0 0.625rem !important;
+	}
+	.toolbar-external-icons-container {
+		padding: 0 0.3125rem 0 0.9375rem;
+		border-radius: 1.25rem;
+		cursor: pointer;
+	}
+	.toolbar-external-icons-container:hover {
+		background: #e5eff8;
+	}
+	.recent-catalog-trigger {
+		max-width: 16%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.toolbar-customer-code-container {
+		padding-right: 0.625rem !important;
+		img {
+			position: relative;
+			top: 0.3125rem;
+			opacity: 0.7;
+		}
+		.customer-name {
+			font-size: 0.875rem;
+			font-weight: 400;
+		}
+	}
+	.max-w-10-per {
+		max-width: 10% !important;
+	}
+}
+
+.breadcrumb-wrapper {
+	padding-left: 2.5rem !important;
+}

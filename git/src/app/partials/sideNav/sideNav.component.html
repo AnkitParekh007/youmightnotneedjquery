@@ -1,0 +1,42 @@
+<div class="bg-primary" (mouseover)="sideNavAction('expand')" (mouseout)="sideNavAction('collapse')">
+	<div id="mainMenuImageExpanded" class="d-flex px-0 amaze-logo main-menu-image-hidden bg-white">
+		<img [src]="logoConfig.expandedImage | staticAsset" />
+	</div>
+	<div id="mainMenuImageCollapsed" class="d-flex px-0 amaze-logo-default main-menu-image-visible bg-primary">
+		<img [src]="logoConfig.collapsedImage | staticAsset" />
+	</div>
+	<div id="mainMenu" class="animated fadeIn bg-primary">
+		<ng-material-multilevel-menu
+			class="primary-menu"
+			(selectedItem)="selectedNavItem($event)"
+			(selectedLabel)="selectedNavItem($event)"
+			[configuration]="navConfig"
+			[items]="navItems">
+		</ng-material-multilevel-menu>
+		<ng-material-multilevel-menu
+			class="secondary-menu border-top border-light w-100"
+			[configuration]="secondaryNavConfig"
+			(selectedLabel)="selectedNavItem($event)"
+			[items]="secondaryNavItems"
+			(selectedItem)="selectedNavItem($event)">
+		</ng-material-multilevel-menu>
+	</div>
+	<ng-container *ngIf="menuCatalogItems.length" [ngTemplateOutlet]="listMenuTmpl" 
+		[ngTemplateOutletContext]="{id: 'catalogListMenu', context: 'catalog', source: menuCatalogItems}">
+	</ng-container>
+	<ng-container *ngIf="menuChannelItems.length" [ngTemplateOutlet]="listMenuTmpl" 
+		[ngTemplateOutletContext]="{id: 'channelListMenu', context: 'channel', source: menuChannelItems}">
+	</ng-container>
+</div>
+
+<ng-template #listMenuTmpl let-id="id" let-context="context" let-source="source">
+	<div [id]="id" class="animated slideInRight d-none max-vertical-h-90 overflow-auto stylishScroll">
+		<ng-material-multilevel-menu
+			class="{{ context }}-selection-menu"
+			[configuration]="secondaryNavConfig"
+			[items]="source"
+			(selectedItem)="selectedNavItem($event)"
+			(selectedLabel)="selectedNavItem($event)">
+		</ng-material-multilevel-menu>
+	</div>
+</ng-template>
